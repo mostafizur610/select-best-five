@@ -3,6 +3,8 @@
     padding: 0px;
 }
 
+/* header section start */
+
 
 .header-section {
     width: 100%;
@@ -11,7 +13,6 @@
 }
 
 .header-image img {
-    /* margin-bottom: 0px; */
     height: 375px;
     width: 350px;
     background-image: url(images/header/mbbg.png);
@@ -24,4 +25,11 @@ h1 {
 .football-image img {
     height: 420px;
     width: 270px;
+}
+
+/* header section end */
+
+/* Budget section input field */
+.custom {
+    border: 1px solid gray;
 }
