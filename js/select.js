@@ -4,22 +4,17 @@ const playerArray = [];
 function display(topPlayer) {
     const tableBody = document.getElementById('top-players');
 
-    if (topPlayer.length <= 5) {
-        tableBody.innerHTML = '';
-        for (i = 0; i < topPlayer.length; i++) {
-            // console.log(playerArray[i].playerName);
-            const name = playerArray[i].playerName;
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
+    // if (topPlayer.length <= 5) {
+    tableBody.innerHTML = '';
+    for (i = 0; i < topPlayer.length; i++) {
+        // console.log(playerArray[i].playerName);
+        const name = playerArray[i].playerName;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
             <th class="text-white p-2">${i + 1} .</th>
             <td class="text-white">${name}</td>
             `;
-            tableBody.appendChild(tr);
-        }
-    }
-    else {
-        alert("You can not added more then five players!!");
-        return;
+        tableBody.appendChild(tr);
     }
 }
 
@@ -29,9 +24,19 @@ function addToTop(elememt) {
     const playerobj = {
         playerName: playerName
     }
+
+    if (playerArray.length + 1 === 6) {
+        alert("You can not added more then five players!!");
+        return
+    };
     playerArray.push(playerobj);
+
     display(playerArray);
+    elememt.disabled = true;
+    elememt.style.color = 'rgba(239, 239, 239, 0.3)';
+    elememt.style['pointer-events'] = 'none';
 }
+
 
 
 
