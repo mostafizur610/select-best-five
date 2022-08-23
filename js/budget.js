@@ -8,7 +8,6 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
     const newCostAmountString = perPlayerCostField.value;
     const newCostAmount = parseFloat(newCostAmountString);
 
-    // perPlayerCostField = '';
     if (isNaN(newCostAmount)) {
         alert('please provide the valid amount of cost');
         return;
@@ -26,32 +25,30 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 });
 
 
+// total calculation part
 document.getElementById('btn-total-calculate').addEventListener('click', function () {
 
     // for manager input field 
-    const managerInputField = document.getElementById('manager-input-field').value;
-    const managerFieldString = managerInputField.innerText;
+    const managerInputField = document.getElementById('manager-input-field');
+    const managerFieldString = managerInputField.value;
     const managerField = parseFloat(managerFieldString);
 
     // for coach input field 
-
-    const coachInputField = document.getElementById('coach-input-field').value;
-    const coachFieldString = coachInputField.innerText;
+    const coachInputField = document.getElementById('coach-input-field');
+    const coachFieldString = coachInputField.value;
     const coachField = parseFloat(coachFieldString);
 
-    console.log(managerInputField);
-    console.log(coachInputField);
-
+    if (isNaN(managerField && coachField)) {
+        alert('please provide the valid amount of cost');
+        return;
+    }
 
     // total output of the calculation 
+    const totalCalculationAmount = document.getElementById('total-calculate');
+    const calculationAmountString = totalCalculationAmount.innerText;
+    const calculationAmount = parseFloat(calculationAmountString);
 
-    const totalAmount = document.getElementById('total-calculate');
-    // const totalAmountString = totalAmount.innerText;
-    // const total = parseFloat(totalAmountString);
-
-    // const newPlayerExpenses = playerExpenses.innerText;
-    const sumOfTotal = parseFloat(managerInputField) + parseFloat(coachInputField) + total;
-    console.log(sumOfTotal);
-    totalAmount.innerText = sumOfTotal;
-
+    //   sum of total expense
+    const sumOfTotal = managerField + coachField + total;
+    totalCalculationAmount.innerText = sumOfTotal;
 });

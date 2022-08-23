@@ -1,13 +1,11 @@
-// console.log('selected top player');
+
+//  display top player section (max = 5 player)
 const playerArray = [];
 
 function display(topPlayer) {
     const tableBody = document.getElementById('top-players');
-
-    // if (topPlayer.length <= 5) {
     tableBody.innerHTML = '';
     for (i = 0; i < topPlayer.length; i++) {
-        // console.log(playerArray[i].playerName);
         const name = playerArray[i].playerName;
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -18,37 +16,19 @@ function display(topPlayer) {
     }
 }
 
-
+// condition and display
 function addToTop(elememt) {
     const playerName = elememt.parentNode.children[0].innerText;
     const playerobj = {
         playerName: playerName
     }
-
     if (playerArray.length + 1 === 6) {
         alert("You can not added more then five players!!");
-        return
-    };
+        return;
+    }
     playerArray.push(playerobj);
-
     display(playerArray);
     elememt.disabled = true;
     elememt.style.color = 'rgba(239, 239, 239, 0.3)';
     elememt.style['pointer-events'] = 'none';
 }
-
-
-
-
-
-
-// document.getElementById('btn-card01').onclick = function(){
-//    this.disabled = true;
-// }
-
-
-
-// function disableButton(elememtId) {
-//     // document.getElementById(btnId).disabled = 'true';
-//     elememtId.disabled = true;
-// }
