@@ -3,9 +3,9 @@ const playerArray = [];
 
 function display(topPlayer) {
     const tableBody = document.getElementById('top-players');
-    tableBody.innerHTML = '';
 
     if (topPlayer.length <= 5) {
+        tableBody.innerHTML = '';
         for (i = 0; i < topPlayer.length; i++) {
             // console.log(playerArray[i].playerName);
             const name = playerArray[i].playerName;
@@ -18,25 +18,32 @@ function display(topPlayer) {
         }
     }
     else {
-        alert("Hello! I am an alert box!!");
+        alert("You can not added more then five players!!");
+        return;
     }
 }
 
 
 function addToTop(elememt) {
-    // console.log(elememt.parentNode.children);
-    // console.log(elememt.parentNode.children[0].innerText);
-
     const playerName = elememt.parentNode.children[0].innerText;
-    // console.log(playerName);
-
-
-
     const playerobj = {
         playerName: playerName
     }
-    // console.log(playerobj);
     playerArray.push(playerobj);
-    // console.log(playerArray.length);
     display(playerArray);
 }
+
+
+
+
+
+// document.getElementById('btn-card01').onclick = function(){
+//    this.disabled = true;
+// }
+
+
+
+// function disableButton(elememtId) {
+//     // document.getElementById(btnId).disabled = 'true';
+//     elememtId.disabled = true;
+// }
